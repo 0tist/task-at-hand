@@ -35,5 +35,5 @@ class resnet_for_cifar(nn.Module):
         return x
 ```
 Cross entropy Loss is used to compare the probability distribution between the predicted values and the target, So for the first experiment the `forward` function was returning `F.softmax(x)`, for which the results are:
-![[slides/task-at-hand.003.jpeg]]
+![[slides\task-at-hand.003.jpeg]]
 ## Task 2
