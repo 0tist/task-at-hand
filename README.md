@@ -44,7 +44,8 @@ A nice experiment to try would be multiplying the logits resulted from softmax w
 
 ## Task 2
 The next task was to freeze some of the initial weights of the model, which can be simply done by `module.requires_grad = False`.
-I conducted a total 3 experiments, wherein 10%, 20% and 30% of the initial layers were frozen i.e., those weights can't be updated.![[slides.006.jpeg]]
+I conducted a total 3 experiments, wherein 10%, 20% and 30% of the initial layers were frozen i.e., those weights can't be updated.
+![](./slides/slides.006.jpeg)
 There's not a lot of difference between freezing 10% of the initial weights and not freezing weights at all.
 ![](./slides/slides.007.jpeg)
 There's something peculiar happening here, as if the model has already achieved its best performance in it's first couple of iterations and it didn't overfit.
