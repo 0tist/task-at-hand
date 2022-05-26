@@ -51,3 +51,37 @@ There's not a lot of difference between freezing 10% of the initial weights and 
 There's something peculiar happening here, as if the model has already achieved its best performance in it's first couple of iterations and it didn't overfit.
 ![](./slides/slides.008.jpeg)
 For 30% freezing of the initial weights, the behaviour of the model was similar to that of freezing initial 10%.
+
+
+## Task 3
+This task simply asked to prune/mask the lowest 10%, 20% and 30% of the weights. I did it with the help of `torch.nn.utils.prune` and this [tutorial](https://pytorch.org/tutorials/intermediate/pruning_tutorial.html). The code snippet for the same:
+```python
+def pruning(self, amnt=0.1):  
+    pruned_params = params_to_prune(self.model)  
+    prune.global_unstructured(  
+        pruned_params,  
+        pruning_method=prune.L1Unstructured,  
+        amount=amnt  
+    )
+```
+
+## Task 4![](./slides/slides.009.jpeg)
+The pruned from task 3 is trained on CIFAR-10. The pruned weights are frozen by default. I did a total of 6 experiments for this setup:
+
+<b>Experiment class 1</b>
+1) Pruned 10% of the lowest weights of a fine-tuned model
+2) Pruned 20% of the lowest weights of a fine-tuned model
+3) Pruned 30% of the lowest weights of a fine-tuned model
+
+<b> Experiment class 2 </b>
+1) Pruned 10% of the lowest weights of a pre-trained resnet model
+2) Pruned 20% of the lowest weights of a pre-trained resnet model
+3) Pruned 30% of the lowest weights of a pre-trained resnet model
+
+As you can see in the image above, the sparsity of the network is maintained over the epochs, hence pruning is working.
+
+### Experiment class 1
+
+![](./slides/slides.011.jpeg|225) ![](./slides/slides.012.jpeg|225) ![](./slides/slides.013.jpeg|225)
+
+For all three of these experiments the model has already achieved it's peak performance as it was fine tuned, this is just to confirm that pruning the smallest weight doesn't affect the performance of the model(Lottery ticket hypothesis)
