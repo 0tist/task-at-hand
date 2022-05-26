@@ -97,5 +97,4 @@ The results were strange.
 ![](./slides/slides.019.jpeg)
 We pruned and the unfreeze 10% of the weights and as you can see the model was trained as in Task - 1, it was able to achieve the original accuracy.
 
-<img src="./slides/slides.020.jpeg" width="330"><img src="./slides/slides.021.jpeg" width="330"><
-![[slides.020.jpeg]]![[slides.021.jpeg]]
+<img src="./slides/slides.020.jpeg" width="330"><img src="./slides/slides.021.jpeg" width="330">
