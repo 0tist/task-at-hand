@@ -85,3 +85,17 @@ As you can see in the image above, the sparsity of the network is maintained ove
 <img src="./slides/slides.011.jpeg" width="330"><img src="./slides/slides.012.jpeg" width="330"><img src="./slides/slides.013.jpeg" width="330">
 
 For all three of these experiments the model has already achieved it's peak performance as it was fine tuned, this is just to confirm that pruning the smallest weight doesn't affect the performance of the model(Lottery ticket hypothesis)
+
+### Experiment class 2
+
+<img src="./slides/slides.015.jpeg" width="330"><img src="./slides/slides.016.jpeg" width="330"><img src="./slides/slides.017.jpeg" width="330">I wanted to see how the pruning of the weights affect the training of the model, The only subtle difference I can point out is that for 30% of the pruned weights it took the model slightly longer to reach its peak performance, other than that it was very similar to what once can expect from the tuning for a pre-trained resent model seen in Task-1
+
+## Task 5![](./slides/slides.018.jpeg)
+Task - 5 was the most challenging of all, it required me to dive deeper into the pruning module. As mentioned earlier, post pruning the pruned weights are frozen and therefore are immune to changes by backprop, this is because of the `weight_mask` which masks the weights before every forward pass implemented by `forward_pre_hooks`, the mask is stored in the buffer. I was looking for a way to change the mask in such a way that all the values are 1, in a way I was looking to do this - `mask = torch.ones_like(module.weight_mask)`. But I found another way to do it, it was pretty straightforward. `prune.remove(module, name)` removes the buffer and make the pruned weights permanent by removing the `weight_orig`. As a result, `module.weight` will give you the weights of the module with no buffer, as a result the `forward_pre_hooks` is not employed and the training is carried out normally and we can see the decrease in the sparsity(look at the figure above).
+
+The results were strange.
+![](./slides/slides.019.jpeg)
+We pruned and the unfreeze 10% of the weights and as you can see the model was trained as in Task - 1, it was able to achieve the original accuracy.
+
+<img src="./slides/slides.020.jpeg" width="330"><img src="./slides/slides.021.jpeg" width="330"><
+![[slides.020.jpeg]]![[slides.021.jpeg]]
