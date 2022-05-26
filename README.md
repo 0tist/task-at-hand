@@ -82,6 +82,7 @@ As you can see in the image above, the sparsity of the network is maintained ove
 
 ### Experiment class 1
 
+<img src="./slides/slides.011.jpeg">
 ![](./slides/slides.011.jpeg | width=225px)
 ![](./slides/slides.012.jpeg | width=225px)
 ![](./slides/slides.013.jpeg | width=225px)
