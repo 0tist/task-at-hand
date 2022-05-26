@@ -84,13 +84,14 @@ As you can see in the image above, the sparsity of the network is maintained ove
 
 ### Experiment class 1
 
-<img src="./slides/slides.011.jpeg" width="330"><img src="./slides/slides.012.jpeg" width="330"><img src="./slides/slides.013.jpeg" width="330">
+<img src="./slides/slides.011.jpeg" width="270"><img src="./slides/slides.012.jpeg" width="270"><img src="./slides/slides.013.jpeg" width="270">
 
 For all three of these experiments the model has already achieved it's peak performance as it was fine tuned, this is just to confirm that pruning the smallest weight doesn't affect the performance of the model(Lottery ticket hypothesis)
 
 ### Experiment class 2
 
-<img src="./slides/slides.015.jpeg" width="265"><img src="./slides/slides.016.jpeg" width="265"><img src="./slides/slides.017.jpeg" width="265">
+<img src="./slides/slides.015.jpeg" width="270"><img src="./slides/slides.016.jpeg" width="270"><img src="./slides/slides.017.jpeg" width="270">
+
 I wanted to see how the pruning of the weights affect the training of the model, The only subtle difference I can point out is that for 30% of the pruned weights it took the model slightly longer to reach its peak performance, other than that it was very similar to what once can expect from the tuning for a pre-trained resent model seen in Task-1
 
 ## Task 5![](./slides/slides.018.jpeg)
