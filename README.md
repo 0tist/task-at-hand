@@ -9,6 +9,8 @@ The tasks are divided are into four stages primarily:
 - Unfreeze the pruned weights to learn their values
 
 # About the Pipeline
+Model Used -  Resnet18
+[Colab notebook](https://colab.research.google.com/drive/1PU9z2DcNuH-og0ww6jNzs2biOrf4abZ7?usp=sharing)
 I use two classes `Trainer` and `Tester` inspired from PyTorch Lightning. This helps add custom loss functions and optimizers without having to change the training pipeline. After this task I realised that it can be useful for introducing hooks and prune models.
 
 ## Task 1
