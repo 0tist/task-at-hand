@@ -98,3 +98,5 @@ The results were strange.
 We pruned and the unfreeze 10% of the weights and as you can see the model was trained as in Task - 1, it was able to achieve the original accuracy.
 
 <img src="./slides/slides.020.jpeg" width="500"><img src="./slides/slides.021.jpeg" width="500">
+
+However, this is not the case when the 20% and 30% were pruned and the trained again on the task, it took only a couple of epochs for the models to reach their maximum performance as we have seen while training fine-tuned model. It's as if these models are fine tuned to CIFAR-10 dataset by not considering some of the weights. Also I've observed the sparsity decreases by a very small value after a particular epoch.
